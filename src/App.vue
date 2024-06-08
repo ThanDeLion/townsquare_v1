@@ -153,11 +153,11 @@ html,
 body {
   font-size: 1.2em;
   line-height: 1.4;
-  background: url("assets/background.jpg") center center;
+  background: url("assets/background.png") center center;
   background-size: cover;
   color: white;
   height: 100%;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: PiratesBay, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;

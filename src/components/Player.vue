@@ -188,7 +188,7 @@
             backgroundImage: `url(${
               reminder.image && grimoire.isImageOptIn
                 ? reminder.image
-                : require('../assets/icons/' +
+                : require('../assets/icons/Icon_' +
                     (reminder.imageAlt || reminder.role) +
                     '.png')
             })`
@@ -860,17 +860,16 @@ li.move:not(.from) .player .overlay svg.move {
 
   .text {
     line-height: 90%;
-    color: black;
+    color: white;
     font-size: 50%;
-    font-weight: bold;
+    font-weight: 800;
     text-align: center;
     margin-top: 50%;
     height: 100%;
     width: 100%;
     position: absolute;
     top: 15%;
-    text-shadow: 0 1px 1px #f6dfbd, 0 -1px 1px #f6dfbd, 1px 0 1px #f6dfbd,
-      -1px 0 1px #f6dfbd;
+   
   }
 
   .icon,

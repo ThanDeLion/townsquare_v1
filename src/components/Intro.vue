@@ -8,8 +8,8 @@
       <span class="button" @click="toggleMenu">
         <font-awesome-icon icon="cog" /> Menu
       </span>
-      on the top right or by pressing <b>[A]</b>. You can also join a game
-      session by pressing <b>[J]</b>.<br />
+      on the top right or by pressing <b>[ A ]</b>. You can also join a game
+      session by pressing <b>[ J ]</b>.<br />
       <div class="footer">
         This project is free and open source and can be found on
         <a href="https://github.com/bra1n/townsquare" target="_blank">GitHub</a
@@ -18,14 +18,7 @@
         Institute.
       </div>
     </div>
-    <a
-      class="redirect"
-      v-if="language === 'zh-CN'"
-      href="https://clocktower.gstonegames.com"
-    >
-      <img src="../assets/gstone.png" class="gstone" alt="" />
-      你想使用中文版魔典吗？
-    </a>
+    
   </div>
 </template>
 
@@ -84,12 +77,10 @@ export default {
   img.logo {
     position: absolute;
     bottom: 100%;
-    width: 25vh;
+    width: 35vh;
     margin-bottom: 2vh;
-    max-width: 192px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px black;
-    border: 3px solid black;
+    max-width: 592px;
+   
   }
   .footer {
     font-size: 60%;

@@ -18,7 +18,7 @@
             backgroundImage: `url(${
               reminder.image && grimoire.isImageOptIn
                 ? reminder.image
-                : require('../../assets/icons/' +
+                : require('../../assets/icons/Icon_' +
                     (reminder.imageAlt || reminder.role) +
                     '.png')
             })`
@@ -144,7 +144,7 @@ ul.reminders .reminder {
   }
 
   .text {
-    color: black;
+    color: white;
     font-size: 65%;
     font-weight: bold;
     text-align: center;

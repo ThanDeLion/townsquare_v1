@@ -8,7 +8,8 @@
           class="edition"
           :class="['edition-' + edition.id]"
           :style="{
-            backgroundImage: `url(${require('../../assets/editions/' +
+            
+            backgroundImage: `url(${require('../../assets/editions/logo_' +
               edition.id +
               '.png')})`
           }"
@@ -205,7 +206,7 @@ ul.editions .edition {
   text-align: center;
   padding-top: 15%;
   background-position: center center;
-  background-size: 100% auto;
+  background-size: 50% auto;
   background-repeat: no-repeat;
   width: 30%;
   margin: 5px;

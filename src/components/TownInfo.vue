@@ -1,74 +1,44 @@
 <template>
-  <ul class="info">
-    <li
-      class="edition"
-      :class="['edition-' + edition.id]"
-      :style="{
-        backgroundImage: `url(${
+
+    <div class="box">
+        <div></div>
+        <table>
+            <caption>
+                <img class="edition_logo" style="width:400px" :src="`${
           edition.logo && grimoire.isImageOptIn
             ? edition.logo
             : require('../assets/editions/' + edition.id + '.png')
-        })`
-      }"
-    ></li>
-    <li v-if="players.length - teams.traveler < 5">
-      Please add more players!
-    </li>
-    <li>
-      <span class="meta" v-if="!edition.isOfficial">
-        {{ edition.name }}
-        {{ edition.author ? "by " + edition.author : "" }}
-      </span>
-      <span>
-        {{ players.length }} <font-awesome-icon class="players" icon="users" />
-      </span>
-      <span>
-        {{ teams.alive }}
-        <font-awesome-icon class="alive" icon="heartbeat" />
-      </span>
-      <span>
-        {{ teams.votes }} <font-awesome-icon class="votes" icon="vote-yea" />
-      </span>
-    </li>
-    <li v-if="players.length - teams.traveler >= 5">
-      <span>
-        {{ teams.townsfolk }}
-        <font-awesome-icon class="townsfolk" icon="user-friends" />
-      </span>
-      <span>
-        {{ teams.outsider }}
-        <font-awesome-icon
-          class="outsider"
-          :icon="teams.outsider > 1 ? 'user-friends' : 'user'"
-        />
-      </span>
-      <span>
-        {{ teams.minion }}
-        <font-awesome-icon
-          class="minion"
-          :icon="teams.minion > 1 ? 'user-friends' : 'user'"
-        />
-      </span>
-      <span>
-        {{ teams.demon }}
-        <font-awesome-icon
-          class="demon"
-          :icon="teams.demon > 1 ? 'user-friends' : 'user'"
-        />
-      </span>
-      <span v-if="teams.traveler">
-        {{ teams.traveler }}
-        <font-awesome-icon
-          class="traveler"
-          :icon="teams.traveler > 1 ? 'user-friends' : 'user'"
-        />
-      </span>
-      <span v-if="grimoire.isNight">
-        Night phase
-        <font-awesome-icon :icon="['fas', 'cloud-moon']" />
-      </span>
-    </li>
-  </ul>
+        }`
+      ">
+            </caption>
+            <tr>
+                <td colspan="4">
+                </td>
+            </tr>
+            <tr>
+                <td>Players</td>
+                <td>{{ players.length }}</td>
+                <td>Alive</td>
+                <td>{{ teams.alive }}</td>
+            </tr>
+            <tr>
+                <td class="townsfolk">Townsfolk</td>
+                <td class="townsfolk">{{ teams.townsfolk }}</td>
+                <td class="minion">Minions</td>
+                <td class="minion">{{ teams.minion }}</td>
+            </tr>
+            <tr>
+                <td class="outsider">Outsiders</td>
+                <td class="outsider">{{ teams.outsider }}</td>
+                <td class="demon">Demons</td>
+                <td class="demon">{{ teams.demon }}</td>
+            </tr>
+            <tr v-if="teams.traveler" class="traveler">
+                <td colspan="3">Travellers</td>
+                <td>{{ teams.traveler }}</td>
+            </tr>
+        </table>
+    </div>
 </template>
 
 <script>
@@ -101,80 +71,57 @@ export default {
 <style lang="scss" scoped>
 @import "../vars.scss";
 
-.info {
-  position: absolute;
-  display: flex;
-  width: 20%;
-  height: 20%;
-  padding: 50px 0 0;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  background: url("../assets/demon-head.png") center center no-repeat;
-  background-size: auto 100%;
 
-  li {
-    font-weight: bold;
-    width: 100%;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-shadow: 0 2px 1px black, 0 -2px 1px black, 2px 0 1px black,
-      -2px 0 1px black;
+    .box {
+        position: absolute;
+        border: 10px solid;
+        -o-border-image: url("../assets/towninfo.122e2c26.webp") 40 fill/20px stretch;
+        border-image: url("../assets/towninfo.122e2c26.webp") 40 fill/20px stretch;
+        padding: 1vh calc(1vh + 10px) 1vh 1vh;
+        font-size: 80%;
+        color: #000;
+        font-weight: 500;
+        line-height: 1.1;
+        display: flex;
+        align-items: center;
 
-    span {
-      white-space: nowrap;
-    }
+        box-shadow: 0 0 10px rgba(0,0,0,.5) tr {
+            white-space: nowrap
+        }
 
-    .meta {
-      text-align: center;
-      flex-basis: 100%;
-      font-family: PiratesBay, sans-serif;
-      font-weight: normal;
-    }
+        tr td:nth-child(odd) {
+            text-align: center;
+            padding: 0 10px
+        }
 
-    svg {
-      margin-right: 10px;
+        tr td:nth-child(2n) {
+            text-align: center;
+            font-size: 120%;
+            font-weight: 500;
+            border-left: 1px dotted #806151;
+            border-right: 1px dotted #806151;
+            padding: 0 10px
+        }
     }
 
-    .players {
-      color: #00f700;
-    }
-    .alive {
-      color: #ff4a50;
-    }
-    .votes {
-      color: #fff;
-    }
     .townsfolk {
-      color: $townsfolk;
+        color: $townsfolk;
     }
-    .outsider {
-      color: $outsider;
-    }
-    .minion {
-      color: $minion;
-    }
-    .demon {
-      color: $demon;
-    }
-    .traveler {
-      color: $traveler;
-    }
-  }
 
-  li.edition {
-    width: 220px;
-    height: 200px;
-    max-width: 100%;
-    max-height: 100%;
-    background-position: 0 center;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    position: absolute;
-    top: -25%;
-  }
-}
+    .outsider {
+        color: $townsfolk;
+    }
+
+    .minion {
+        color: $demon;
+    }
+
+    .demon {
+        color: $demon;
+    }
+
+    .traveler {
+        color: $traveler;
+    }
+
 </style>
