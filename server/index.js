@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== "development") {
 
 const server = https.createServer(options);
 const wss = new WebSocket.Server({
-  ...(process.env.NODE_ENV === "development" ? { port: 1024 } : { server }),
+  ...(process.env.NODE_ENV === "development" ? { port: 1111 } : { server }),
   verifyClient: info =>
     info.origin &&
     !!info.origin.match(
@@ -252,7 +252,7 @@ wss.on("close", function close() {
 // prod mode with stats API
 if (process.env.NODE_ENV !== "development") {
   console.log("server starting");
-  server.listen(1024);
+  server.listen(1111);
   server.on("request", (req, res) => {
     res.setHeader("Content-Type", register.contentType);
     register.metrics().then(out => res.end(out));
