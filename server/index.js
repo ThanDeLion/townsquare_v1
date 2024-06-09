@@ -7,7 +7,7 @@ const client = require("prom-client");
 const register = new client.Registry();
 // Add a default label which is added to all metrics
 register.setDefaultLabels({
-  app: "clocktower-online"
+  app: "botc-online"
 });
 
 const PING_INTERVAL = 30000; // 30 seconds
@@ -21,11 +21,11 @@ if (process.env.NODE_ENV !== "development") {
 
 const server = https.createServer(options);
 const wss = new WebSocket.Server({
-  ...(process.env.NODE_ENV === "development" ? { port: 8081 } : { server }),
+  ...(process.env.NODE_ENV === "development" ? { port: 1024 } : { server }),
   verifyClient: info =>
     info.origin &&
     !!info.origin.match(
-      /^https?:\/\/([^.]+\.github\.io|([^.]+\.netlify\.app|localhost|clocktower\.online|eddbra1nprivatetownsquare\.xyz)/i
+      /^https?:\/\/([^.]+\.github\.io|botcapp.netlify\.app|localhost|clocktower\.online|eddbra1nprivatetownsquare\.xyz)/i
     )
 });
 
@@ -252,7 +252,7 @@ wss.on("close", function close() {
 // prod mode with stats API
 if (process.env.NODE_ENV !== "development") {
   console.log("server starting");
-  server.listen(8080);
+  server.listen(1024);
   server.on("request", (req, res) => {
     res.setHeader("Content-Type", register.contentType);
     register.metrics().then(out => res.end(out));
