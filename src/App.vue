@@ -149,6 +149,12 @@ export default {
   font-display: swap;
 }
 
+    @font-face {
+        font-family: Franklin;
+        src: url("assets/fonts/framd.ttf");
+        font-display: swap;
+    }
+
 html,
 body {
   font-size: 1.2em;

@@ -419,119 +419,114 @@ export default {
   }
 }
 
-.menu {
-  width: 220px;
-  transform-origin: 200px 22px;
-  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  transform: rotate(-90deg);
-  position: absolute;
-  right: 0;
-  top: 0;
+    .menu {
+        width: 220px;
+        transform-origin: 200px 22px;
+        transition: transform 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        transform: rotate(-90deg);
+        position: absolute;
+        right: 0;
+        top: 0;
 
-  &.open {
-    transform: rotate(0deg);
-  }
-
-  > svg {
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    border: 3px solid black;
-    width: 40px;
-    height: 50px;
-    margin-bottom: -8px;
-    border-bottom: 0;
-    border-radius: 10px 10px 0 0;
-    padding: 5px 5px 15px;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-    &:hover {
-      color: red;
-    }
-  }
-
-  ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 0 10px black;
-    border: 3px solid black;
-    border-radius: 10px 0 10px 10px;
-
-    li {
-      padding: 2px 5px;
-      color: white;
-      text-align: left;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 30px;
-
-      &.tabs {
-        display: flex;
-        padding: 0;
-        svg {
-          flex-grow: 1;
-          flex-shrink: 0;
-          height: 35px;
-          border-bottom: 3px solid black;
-          border-right: 3px solid black;
-          padding: 5px 0;
-          cursor: pointer;
-          transition: color 250ms;
-          &:hover {
-            color: red;
-          }
-          &:last-child {
-            border-right: 0;
-          }
+        &.open {
+            transform: rotate(0deg);
         }
-        &.grimoire .fa-book-open,
-        &.players .fa-users,
-        &.characters .fa-theater-masks,
-        &.session .fa-broadcast-tower,
-        &.help .fa-question {
-          background: linear-gradient(
-            to bottom,
-            $townsfolk 0%,
-            rgba(0, 0, 0, 0.5) 100%
-          );
+
+        > svg {
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border: 3px solid black;
+            width: 40px;
+            height: 50px;
+            margin-bottom: -8px;
+            border-bottom: 0;
+            border-radius: 10px 10px 0 0;
+            padding: 5px 5px 15px;
         }
-      }
 
-      &:not(.headline):not(.tabs):hover {
-        cursor: pointer;
-        color: red;
-      }
+        a {
+            color: white;
+            text-decoration: none;
 
-      em {
-        flex-grow: 0;
-        font-style: normal;
-        margin-left: 10px;
-        font-size: 80%;
-      }
+            &:hover {
+                color: #ffad00;
+            }
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 0 10px black;
+            border: 3px solid black;
+            border-radius: 10px 0 10px 10px;
+
+            li {
+                padding: 2px 5px;
+                color: white;
+                text-align: left;
+                background: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 30px;
+
+                &.tabs {
+                    display: flex;
+                    padding: 0;
+
+                    svg {
+                        flex-grow: 1;
+                        flex-shrink: 0;
+                        height: 35px;
+                        border-bottom: 3px solid black;
+                        border-right: 3px solid black;
+                        padding: 5px 0;
+                        cursor: pointer;
+                        transition: color 250ms;
+
+                        &:hover {
+                            color: #ffad00;
+                        }
+
+                        &:last-child {
+                            border-right: 0;
+                        }
+                    }
+
+                    &.grimoire .fa-book-open,
+                    &.players .fa-users,
+                    &.characters .fa-theater-masks,
+                    &.session .fa-broadcast-tower,
+                    &.help .fa-question {
+                        background: linear-gradient( to bottom, $townsfolk 0%, rgba(0, 0, 0, 0.5) 100% );
+                    }
+                }
+
+                &:not(.headline):not(.tabs):hover {
+                    cursor: pointer;
+                    color: #ffad00;
+                }
+
+                em {
+                    flex-grow: 0;
+                    font-style: normal;
+                    margin-left: 10px;
+                    font-size: 80%;
+                }
+            }
+
+            .headline {
+                font-family: PiratesBay, sans-serif;
+                letter-spacing: 1px;
+                padding: 0 10px;
+                text-align: center;
+                justify-content: center;
+                background: linear-gradient(90deg,#ffad00 0,rgba(0,0,0,.7) 50%,rgba(0,0,0,.7) 50%,#792fcb)
+            }
+        }
     }
-
-    .headline {
-      font-family: PiratesBay, sans-serif;
-      letter-spacing: 1px;
-      padding: 0 10px;
-      text-align: center;
-      justify-content: center;
-      background: linear-gradient(
-        to right,
-        $townsfolk 0%,
-        rgba(0, 0, 0, 0.5) 20%,
-        rgba(0, 0, 0, 0.5) 80%,
-        $demon 100%
-      );
-    }
-  }
-}
 </style>
